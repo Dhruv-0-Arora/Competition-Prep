@@ -10,24 +10,15 @@ LANG: C++
 
 using namespace std;
 
-int main() {
-    // opening the files
-    ifstream fin;
-    fin.open("ride.in");
+ifstream fin("ride.in");
+ofstream fout("ride.out");
 
-    string line_file;
-    
-    while(getline(fin, line_file)) {
-       cout << line_file << endl;
-       cout << "here";
-    }
-
-    fin.close();
-
-    // Adding output to file
-//    ofstream fout ("test.out");
-//    fout << "GO";
-//    fout.close();
+int main()
+{
+    string N;
+    fin >> N;
+    cout << N;
+    fout << N << endl;
 
     return 0;
 }
