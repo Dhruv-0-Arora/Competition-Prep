@@ -15,10 +15,11 @@ ofstream fout("ride.out");
 
 int main()
 {
-    string N;
-    fin >> N;
-    cout << N;
-    fout << N << endl;
+    string a;
+    string b;
+    fin >> a >> b;
+    cout << a << " " << b << endl;
+//    fout << N << endl;
 
     return 0;
 }
