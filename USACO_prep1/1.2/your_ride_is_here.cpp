@@ -19,7 +19,7 @@ int main()
     string b;
     fin >> a >> b;
     cout << a << " " << b << endl;
-//    fout << N << endl;
+    fout << N << endl
 
     return 0;
 }
