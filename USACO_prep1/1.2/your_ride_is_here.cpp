@@ -18,7 +18,7 @@ bool convert(string word)
     int num = 1;
     for (char letter : word) { num *= (int(letter) - 64); }
     if (num % 47 == 27) { return true; }
-    return false;
+    return num;
 }
 
 int main()
@@ -26,9 +26,9 @@ int main()
     string comet, group;
     fin >> comet >> group;
 
-    bool cometBool = convert(comet);
-    bool groupBool = convert(group);
+    int cometBool = convert(comet) % 47;
+    int groupBool = convert(group) % 47;
 
-    if (cometBool && groupBool) { fout << "GO" << endl; }
+    if (cometBool == groupBool) { fout << "GO" << endl; }
     else { fout << "STAY" << endl; }
 }
