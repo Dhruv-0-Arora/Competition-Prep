@@ -23,39 +23,36 @@ ofstream fout("ride.out");
 //     }
 // }
 
+int num = 1;
+bool convert(string word)
+{
+    for (char letter : word)
+    {
+        num = num * (int(letter)) - 64;
+        cout << letter;
+        if (num % 47 == 27) 
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
 int main()
 {
-    string a;
-    string b;
-    fin >> a >> b;
-    // fout << a << " " << b << endl;
-    
-    vector<int> arr;
-    for (char c : a) 
-    {
-       int i = c - 87 + 23;
-       arr.push_back(i);
-    }
+    string comet, group;
+    fin >> comet >> group;
 
-    if (accumulate(arr.begin(), arr.end(), 1, multiplies<double>()) % 47 == 27) 
-    {
-        vector<int> arr2;
-        for (char c : b) 
-        {
-        int i = c - 87 + 23;
-        arr2.push_back(i);
-        }
+    bool cometBool = convert(comet);
+    bool groupBool = convert(group);
 
-        if (accumulate(arr2.begin(), arr2.end(), 1, multiplies<double>()) % 47 == 27)
-        {
-            fout << "GO" << endl;
-        }
-        else 
-        {
-            fout << "STAY" << endl;
-        }
+    if (cometBool && groupBool)
+    {
+        fout << "GO" << endl; 
     }
-    else {
+    else 
+    {
+        cout << cometBool << " " << groupBool << endl;
         fout << "STAY" << endl;
     }
 }
