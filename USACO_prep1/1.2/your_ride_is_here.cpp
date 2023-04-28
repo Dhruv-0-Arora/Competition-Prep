@@ -23,19 +23,19 @@ ofstream fout("ride.out");
 //     }
 // }
 
-int num = 1;
 bool convert(string word)
 {
+    int num = 1;
     for (char letter : word)
     {
         num = num * (int(letter)) - 64;
-        cout << letter;
-        if (num % 47 == 27) 
-        {
-            return true;
-        }
-        return false;
     }
+    cout << num << endl;
+    if (num % 47 == 27) 
+    {
+        return true;
+    }
+    return false;
 }
 
 int main()
@@ -53,6 +53,6 @@ int main()
     else 
     {
         cout << cometBool << " " << groupBool << endl;
-        fout << "STAY" << endl;
+        // fout << "STAY" << endl;
     }
 }
