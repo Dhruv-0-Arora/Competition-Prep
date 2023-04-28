@@ -26,7 +26,7 @@ int main()
     string comet, group;
     fin >> comet >> group;
 
-    bool cometBiol = convert(comet);
+    bool cometBool = convert(comet);
     bool groupBool = convert(group);
 
     if (cometBool && groupBool) { fout << "GO" << endl; }
