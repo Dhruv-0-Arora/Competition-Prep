@@ -13,12 +13,11 @@ using namespace std;
 ifstream fin("ride.in");
 ofstream fout("ride.out");
 
-bool convert(string word)
+int convert(string word)
 {
     int num = 1;
     for (char letter : word) { num *= (int(letter) - 64); }
-    if (num % 47 == 27) { return true; }
-    return num;
+    return (num % 47);
 }
 
 int main()
@@ -26,9 +25,9 @@ int main()
     string comet, group;
     fin >> comet >> group;
 
-    int cometBool = convert(comet) % 47;
-    int groupBool = convert(group) % 47;
+    int cometNum = convert(comet);
+    int groupNum = convert(group);
 
-    if (cometBool == groupBool) { fout << "GO" << endl; }
+    if (cometNum == groupNum) { fout << "GO" << endl; }
     else { fout << "STAY" << endl; }
 }
