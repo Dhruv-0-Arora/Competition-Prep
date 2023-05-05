@@ -34,6 +34,7 @@ int main()
         fin >> people;
         
         int amount = gave / people; // amount per person
+        
 
         m[giver] -= amount; // removing the amount gifted
         m[giver] += gave % people; // giving remainder money
@@ -45,6 +46,7 @@ int main()
         }
 
     }
+
 
     for (auto const &pair : m) {
         cout << pair.first << " " << pair.second << endl;
