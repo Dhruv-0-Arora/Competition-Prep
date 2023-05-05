@@ -1,3 +1,9 @@
+/*
+ID: dhruvar1
+PROG: gift1
+LANG: C++
+*/
+
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -15,6 +21,7 @@ int main()
     fin >> np;
 
     map<string, int> m;
+    string order[np];
     
     for (int i = 0; i < np; i++) {
 
@@ -22,6 +29,7 @@ int main()
         fin >> name;
 
         m[name] = 0;
+        order[i] = name;
     }
 
     while (fin.peek() != EOF) {
@@ -36,7 +44,7 @@ int main()
         int amount = gave / people; // amount per person
         
 
-        m[giver] -= amount; // removing the amount gifted
+        m[giver] -= gave; // removing the amount gifted
         m[giver] += gave % people; // giving remainder money
 
         for (int j = 0; j < people; j++) {
@@ -48,8 +56,9 @@ int main()
     }
 
 
-    for (auto const &pair : m) {
-        cout << pair.first << " " << pair.second << endl;
-    }
+    for (string name : order) {
 
+        fout << name << " " << m[name] << endl;
+
+    }
 }
