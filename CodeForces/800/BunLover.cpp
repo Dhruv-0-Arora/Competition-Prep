@@ -11,7 +11,8 @@ int main() {
     cin >> t;
 
     int total;
-    for (int x = 0; x < n; x++) {
+    for (int x = 0; x < t; x++) {
+        cout << "here";
         cin >> n;
 
         total = 10;
