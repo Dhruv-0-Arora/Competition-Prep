@@ -67,94 +67,54 @@ We can show that an answer always exists.
 
 
 
-#include <fstream>
-#include <iostream>
-#include <math.h>
-
-using namespace std;
-
-// reading file input and output
-ifstream fin("PermutationSwap.in");
-
-int findK(int n, int p[])
-{
-    int k = 0;
-
-    for (int i = 0; i < n - 1; i++)
-    {
-        k = max(k, i + 1 - p[i]);
-    }
-
-    return k;
-}
-
-int main()
-{
-
-    // value t is the number of test cases with max value of 10^4
-    int t;
-    fin >> t;
-
-    // n will be the length of the permutation max value of 10^5
-    int n;
-
-    for (int i = 0; i < t; i++)
-    {
-        fin >> n;
-
-        // k will be the max value of k
-        int k = 0;
-
-        // reading each permutation value
-        int p[n];
-        for (int j = 0; j < n; j++)
-        {
-            fin >> p[j];
-        }
-
-        // finding the max value of k
-        cout << findK(n, p) << endl;
-    }
-}
-
+// #include <fstream>
 // #include <iostream>
-// #include <vector>
+// #include <math.h>
 
 // using namespace std;
 
-// // q: explain how this code works
-// /*
-//     a: the code works by finding the difference between the index and the value of the permutation
-// */
+// // reading file input and output
+// ifstream fin("PermutationSwap.in");
 
-// int maximumKToSortPermutation(vector<int>& permutation) {
-//     int n = permutation.size();
-//     int maxK = 0;
+// int findK(int n, int p[])
+// {
+//     int k = 0;
 
-//     for (int i = 0; i < n - 1; i++) {
-//         int diff = i + 1 - permutation[i];
-//         maxK = max(maxK, diff);
+//     // why did the -1 to n fix my code 
+//     // because the index starts at 0 and the value starts at 1
+//     for (int i = 0; i < n - 1; i++)
+//     {
+//         k = max(k, i + 1 - p[i]);
 //     }
 
-//     return maxK;
+//     return k;
 // }
 
-// int main() {
+// int main()
+// {
+
+//     // value t is the number of test cases with max value of 10^4
 //     int t;
-//     cin >> t;
+//     fin >> t;
 
-//     while (t--) {
-//         int n;
-//         cin >> n;
+//     // n will be the length of the permutation max value of 10^5
+//     int n;
 
-//         vector<int> permutation(n);
-//         for (int i = 0; i < n; i++) {
-//             cin >> permutation[i];
-//         }
+//     for (int i = 0; i < t; i++)
+//     {
+//         fin >> n;
 
-//         int maxK = maximumKToSortPermutation(permutation);
-//         cout << maxK << endl;
+//         // k will be the max value of k
+//         int k = 0;
+
+//         // reading each permutation value
+//         int p[n];
+//         for (int j = 0; j < n; j++)
+//         { fin >> p[j]; }
+
+//         // finding the max value of k
+//         cout << findK(n, p) << endl;
 //     }
-
-//     return 0;
 // }
+
+
