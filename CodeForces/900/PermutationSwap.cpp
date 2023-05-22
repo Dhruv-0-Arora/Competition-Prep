@@ -76,12 +76,12 @@ We can show that an answer always exists.
 // // reading file input and output
 // ifstream fin("PermutationSwap.in");
 
+// // function to find the max value of k
 // int findK(int n, int p[])
 // {
 //     int k = 0;
 
-//     // why did the -1 to n fix my code 
-//     // because the index starts at 0 and the value starts at 1
+//     // finding the max value of k
 //     for (int i = 0; i < n - 1; i++)
 //     {
 //         k = max(k, i + 1 - p[i]);
@@ -118,3 +118,40 @@ We can show that an answer always exists.
 // }
 
 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int solve() {
+    int n;
+    cin >> n;
+
+    vector<int> v(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+        v[i]--;
+    }
+
+    vector<int> ds;
+
+    for (int i = 0; i < n; i++)
+    {
+        int d = abs(v[i] - i);
+        if (d == 0)
+        {
+            continue;
+        }
+        ds.push_back(d);
+    }
+
+    int ans = 1;
+    ans = ds[0];
+
+    for (auto x : ds)
+    {
+        ans = __gcd(ans, x);
+    }
+
+    cout << ans << endl;
+}
