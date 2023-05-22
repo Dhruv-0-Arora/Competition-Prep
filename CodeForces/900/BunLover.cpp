@@ -24,7 +24,8 @@ int main() {
 
     }
 
-    for (long long total : totals) {
-        cout << total << endl;
+    // output the total amount of chocolate
+    for (int i = 0; i < t; i++) {
+        cout << totals[i] << endl;
     }
 }
