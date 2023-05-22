@@ -76,7 +76,20 @@ using namespace std;
 // reading file input and output
 ifstream fin("PermutationSwap.in");
 
-int main() {
+int findK(int n, int p[])
+{
+    int k = 0;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        k = max(k, i + 1 - p[i]);
+    }
+
+    return k;
+}
+
+int main()
+{
 
     // value t is the number of test cases with max value of 10^4
     int t;
@@ -85,7 +98,8 @@ int main() {
     // n will be the length of the permutation max value of 10^5
     int n;
 
-    for (int i = 0; i < t; i++) {
+    for (int i = 0; i < t; i++)
+    {
         fin >> n;
 
         // k will be the max value of k
@@ -93,20 +107,15 @@ int main() {
 
         // reading each permutation value
         int p[n];
-        for (int j = 0; j < n; j++) {
+        for (int j = 0; j < n; j++)
+        {
             fin >> p[j];
-
-            k = max(k, j + 1 - p[j]);
         }
 
-        cout << k << endl;
-
+        // finding the max value of k
+        cout << findK(n, p) << endl;
     }
-
 }
-
-
-
 
 // #include <iostream>
 // #include <vector>
