@@ -117,9 +117,8 @@ We can show that an answer always exists.
 //     }
 // }
 
-
-
 #include <bits/stdc++.h>
+
 using namespace std;
 
 int solve() {
