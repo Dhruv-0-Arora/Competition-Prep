@@ -20,6 +20,8 @@ int main() {
             cin >> arr[i];
         sort(arr, arr + n);
 
+        string ans = "YES";
+
         if (arr[0] % 2 == 1)
         {
             cout << "YES" << endl;
@@ -30,12 +32,11 @@ int main() {
         {
             if (arr[i] % 2 == 1)
             {
-                cout << "YES" << endl;
-                break;
+                ans = "NO";
             }
         }
 
-        cout << "YES" << endl;
+        cout << ans << endl;
     }
 
     return 0;
