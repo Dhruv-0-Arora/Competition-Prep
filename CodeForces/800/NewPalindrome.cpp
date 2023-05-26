@@ -3,47 +3,17 @@ using namespace std;
 
 int main()
 {
-
     int t;
     cin >> t;
     while (t--)
     {
         string s;
         cin >> s;
-        
-        vector<char> set1;
-        bool found = false;
-        for (int i = 0; i < s.length(); i++)
-        {
-            // how to check if a char is in a vector
-            if (find(set1.begin(), set1.end(), s[i]) != set1.end())
-            {
-                if (set1.size() >= 3 && s.size() % 2 != 0)
-                {
-                    cout << "YES" << endl;
-                    found = true;
-                    break;
-                }
-                else if (set1.size() >= 2 && s.size() % 2 == 0)
-                {
-                    cout << "YES" << endl;
-                    found = true;
-                    break;
-                }
-            }
-            else
-            {
-                set1.push_back(s[i]);
-            }
-            
-        }
-        if (!found)
-        {
-            cout << "NO" << endl;
-        }
+        s = s.substr(0, s.size() / 2);
+        int k = unique(s.begin(), s.end()) - s.begin();
+        // what is the question mark for
+        cout << (k == 1 ? "NO" : "YES") << endl;
     }
-    return 0;
-
 }
 
 /*
