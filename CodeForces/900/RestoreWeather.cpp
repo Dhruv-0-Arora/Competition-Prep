@@ -1,46 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    
-    int t; cin >> t;
-
-    while (t--) {
-        int n, k; cin >> n >> k;
-
-        // getting array values
-        vector<int> a, b, acopy;
-        for (int i = 0; i < n; i++) 
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, k;
+        cin >> n >> k;
+        vector<pair<int, int>> a(n);
+        vector<int> b(n), ans(n);
+        for (int i = 0; i < n; i++)
         {
-            int temp; cin >> temp;
-            a.push_back(temp); acopy.push_back(temp);
+            cin >> a[i].first;
+            a[i].second = i;
         }
-        for (int i = 0; i < n; i++) 
-        {
-            int temp; cin >> temp;
-            b.push_back(temp);
-        }
-
-        sort(a.begin(), a.end()); sort(b.begin(), b.end());
+        for (auto &i : b)
+            cin >> i;
+        sort(b.begin(), b.end());
+        sort(a.begin(), a.end());
 
         for (int i = 0; i < n; i++)
         {
-            // find index of a[i] in acopy[i] and swap them in a[] and b[]
-            int index = find(acopy.begin(), acopy.end(), a[i]) - acopy.begin();
-            int temp; temp = a[index];
-            a[index] = a[i]; a[i] = temp;
-
-            temp = b[i];
-            b[i] = b[index]; b[index] = temp;
+            ans[a[i].second] = b[i];
         }
-        
-        for (int i = 0; i < n; i++)
-        {
-            cout << b[i] << " ";
-        }
+        for (auto &i : ans)
+            cout << i << ' ';
         cout << endl;
     }
-
 }
-
-
