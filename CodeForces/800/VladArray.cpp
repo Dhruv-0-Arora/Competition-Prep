@@ -5,74 +5,40 @@ int main() {
 
     int t;
     cin >> t;
+    int altT = t;
 
     string ans[t];
 
-    while(t--) {
+    while (t--)
+    {
+
         int n;
         cin >> n;
 
-        long long a[n];
-        int odd = 0;
-        int even = 0;
-        bool beautiful = true;
-        for (int i = 0; i < n; i++) {
-            cin >> a[i];
-            if (a[i] < 0) 
-            {
-                beautiful = false; 
-                break;
-            }
-            if (a[i] % 2 == 0) even++;
-            else odd++;
-        }
+        int arr[n];
+        for (int i = 0; i < n; i++)
+            cin >> arr[i];
+        sort(arr, arr + n);
 
-        if (!beautiful) {
-            ans[t] = "NO";
-            continue;
-        }
+        string ans = "YES";
 
-        if (odd == 0 || even == 0) {
-            ans[t] = "YES";
-            continue;
-        }
-
-        sort(a, a + n);
-
-        // for even numbers
-        bool beautifulEven = true;
-        for (int i = 0; i < n; i++) {
-            if (a[i] % 2 == 0) continue;
-            for (int j = 0; j < i; j++) 
-            {
-                if (a[j] % 2 == 0) break;
-                else {beautifulEven = false; break;}
-            }
-        }
-        
-        // for odd numbers
-        bool beautifulOdd = true;
-        for (int i = 0; i < n; i++) 
+        if (arr[0] % 2 == 1)
         {
-            if (a[i] % 2 != 0) continue;
-            for (int j = 0; j < i; j++) 
+            cout << "YES" << endl;
+            continue;
+        }
+
+        for (int i = 0; i < n; i++)
+        {
+            if (arr[i] % 2 == 1)
             {
-                if (a[j] % 2 != 0) break;
-                else {beautifulOdd = false; break;}
+                ans = "NO";
             }
         }
 
-        if (beautifulEven || beautifulOdd) ans[t] = "YES";
-        else ans[t] = "NO";
-
-
+        cout << ans << endl;
     }
 
-    cout << sizeof(ans) << endl;
-
-    for (int i = 0; i < sizeof(ans); i++) {
-        cout << ans[i] << endl;
-    }
     return 0;
 
 }
