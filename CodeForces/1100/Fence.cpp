@@ -7,11 +7,13 @@ int main()
 
     int h[n]; for (int i = 0; i < n; i++) cin >> h[i];
 
-    int sum[n-k+1]; int minNum = 1e9; int minIndex = 0;
+    long long sum[n-k+1]; long long minNum = 1e16; int minIndex = 0;
     for (int i = k-1; i < n; i++) {
-        for (int j = i; j > i-k+1; j--) {
-            sum[i] += h[j];
+        for (int j = 0; j < k; j++) {
+            cout << h[i-j] << " ";
+            sum[i] += h[i-j];
         }
+        cout << endl;
 
         if (sum[i] < minNum) {
             minNum = sum[i];
