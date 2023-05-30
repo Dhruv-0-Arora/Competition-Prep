@@ -1,34 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-int main()
+int main ()
 {
-    int n, k; cin >> n >> k;
-
-    int h[n]; for (int i = 0; i < n; i++) cin >> h[i];
-
-    long long sum[n-k+1]; long long minNum = 1e16; int minIndex = 0;
-    for (int i = k-1; i < n; i++) {
-        for (int j = 0; j < k; j++) {
-            cout << h[i-j] << " ";
-            sum[i] += h[i-j];
-        }
-        cout << endl;
-
-        if (sum[i] < minNum) {
-            minNum = sum[i];
-            minIndex = i - k + 2;
-        }
+    long long n, k, x, ans = 0;
+    cin >> n >> k;
+    long long ara[n], sum[n];
+    for (int i = 0; i < n; i++) {
+        cin >> ara[i];
+        if (i == 0) sum[0] = ara[0];
+        else sum[i] = sum[i-1] + ara[i];
     }
 
-    cout << minIndex << endl;
-
-    // print out array sum
-    // for (int i = 0; i < n-k+1; i++) {
-    //     cout << sum[i] << " ";
-    // }
-
+    long long mn = (long long) 1e+16;
+    for (int i = 0; i < n - k + 1; i++) {
+        if (i == 0) x = sum[i + k - 1];
+        else x = sum[i + k - 1] - sum[i - 1];
+        if (x < 0) x *= -1;
+        if (x < mn) {
+            mn = x;
+            ans = (long long) i;
+        }
+    }
+    cout << ans + 1 << endl;
+    return 0;
 }
+
 
 /*
 Polycarpus has bought a posh piano and is thinking about how to get it into the house. In order to carry out his plan, he needs to take exactly k consecutive planks from the fence. Higher planks are harder to tear off the fence, so Polycarpus wants to find such k consecutive planks that the sum of their heights is minimal possible.
