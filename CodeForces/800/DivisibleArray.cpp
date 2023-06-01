@@ -1,14 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+void solve()
+{
+
+	int n; cin >> n;
+	int a[n];
+	for (int i = 1; i < n+1; i++)
+	{
+		a[i] = i;
+	}
+
+	if ()
+}
+
 int main()
 {
-    int t; cin >> t;
-
-    while (t--) {
-    	int n;
-    	cin >> n;
-    	for (int i = 1; i <= n; i++) cout << i * 2 << " ";
-    	cout << "\n";
-    }
+	int t; cin >> t;
+	while (t--) solve();
 }
