@@ -12,7 +12,6 @@ void solve()
 		a[i] = i;
 	}
 
-	if ()
 }
 
 int main()
