@@ -1,6 +1,32 @@
 #include <bits/stdc++.h>   
 using namespace std;
 
+void solve()
+{
+    int n, t; cin >> n >> t;
+    int a[n], b[n];
+
+    for (int i = 0; i < n; i++) cin >> a[i];
+    for (int i = 0; i < n; i++) cin >> b[i];
+    int bst = -1; // best index
+
+    for (int i = 0; i < n; i++)
+    {
+        if (i + a[i] <= t && (bst == -1 || b[i] > b[bst]))
+        {
+            bst = i;
+        }
+    }
+    if (bst == -1) cout << -1 << endl;
+    else cout << bst + 1 << endl;
+}
+
+int main()
+{
+    int q; cin >> q;
+    while (q--) solve();
+}
+
 // // finding the excitement from b
 // void findExcitement(vector<pair<int, int>>& a, vector<int>& b, int t, int n)
 // {
