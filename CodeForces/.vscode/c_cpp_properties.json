@@ -11,7 +11,8 @@
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "compilerPath": "/opt/homebrew/bin/gcc"
+            "compilerPath": "/opt/homebrew/bin/gcc",
+            "intelliSenseMode": "macos-gcc-x86"
         },
         {
             "name": "PC",
