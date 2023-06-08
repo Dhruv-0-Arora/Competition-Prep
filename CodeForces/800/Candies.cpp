@@ -7,20 +7,25 @@ void solve()
     if (n%2==0)
     {
         cout << -1 << endl;
+        return;
     }
 
     vector<int> v;
     int f = 0;
-    for (int i = 29; i >= 1; i--) {
-        if ((n >> i) & 1) {
+    for(int i = 29;i >= 1;i--) {
+        if((n >> i) & 1) {
             f = 1;
-            v.push_back(i);
-        } else if (f) {
-            v.push_back(i);
+            v.push_back(2);
+        }
+        else if(f) {
+            v.push_back(1);
         }
     }
+
     cout << v.size() << endl;
-    for (auto x : v) cout << x << endl;
+    for (auto x : v) cout << x << " ";
+
+    cout << endl;
 }
 
 int main()
