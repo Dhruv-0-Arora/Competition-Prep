@@ -1,42 +1,26 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+void  solve(){
+    int n, k;
+    cin >> n >> k;
+    vector<pair<int, int>>a(n);
+    vector<int>b(n), ans(n);
+    for(int i = 0; i < n; i++){
+        cin >> a[i].first;
+        a[i].second = i;
+    }
+    for(auto &i : b) cin >> i;
+    sort(b.begin(), b.end());
+    sort(a.begin(), a.end());
 
-void solve()
-{
-    int n; cin >> n;
-    long long k; cin >> k;
-    int a[n], acopy[n], b[n], bcopy[n];
-    for (int &x : a) cin >> x;
-    for (int &x : b) cin >> x;
-    copy(a, a + n, acopy);
-    sort(a, a + n);
-    sort(b, b + n);
-
-    // print a
-    for (int i = 0; i < n; i++) {
-        cout << a[i] << " ";
-    } cout << endl;
-
-    // print acopy
-    for (int i = 0; i < n; i++) {
-        cout << acopy[i] << " ";
-    } cout << endl;
-
-    // reverse sort a transfered to b
-    // for (int i = 0; i < n; i++) {
-    //     // find index of a[i] in acopy
-    //     int index = find(acopy, acopy + n, a[i]) - acopy;
-    //     bcopy[i] = b[index];
-    // }
-
-    // print bcopy
-    // for (int i = 0; i < n; i++) {
-    //     cout << bcopy[i] << " ";
-    // } cout << endl;
+    for(int i = 0; i < n; i++){
+        ans[a[i].second] = b[i];
+    }
+    for(auto &i : ans) cout << i << ' ';
+    cout << endl;
 }
-
-int main() 
-{
-    short t; cin >> t;
-    while (t--) solve();
+int main(){
+    int t;
+    cin >> t;
+    while(t--) solve();
 }
