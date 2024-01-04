@@ -4,7 +4,7 @@ using namespace std;
 set<int> s;
 
 
-void recurse(vector<int> arr) {
+void recurse(vector<short> arr) {
     if (find(arr.begin(), arr.end(), 2) != arr.end()) {
         // find the first instance of 2
         int first = find(arr.begin(), arr.end(), 2) - arr.begin();;
@@ -31,7 +31,7 @@ void recurse(vector<int> arr) {
 
 void solve() {
     int t; cin >> t;
-    vector<int> arr;
+    vector<short> arr;
     while(t) {
         char c; cin >> c;
         if (c == 'F')
