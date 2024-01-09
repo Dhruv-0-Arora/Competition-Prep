@@ -1,23 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int n; cin >> n;
-
-    long long a[n]; for (int i = 0; i < n; i++) cin >> a[i]; sort(a, a+n);
-
-    long long maxMoney = 0; long long charge = 0;
-
-    for (int i = 0; i < n; i++) 
-    {
-
-        if((n - (i))*a[i] > maxMoney)
-        {
-            maxMoney = (n - (i))*a[i];
-            charge = a[i];
+void checkIndex(int &index, vector<int> &cows) {
+    for (int i = cows.size() - index; i < cows.size(); i++) {
+        if (cows[i] == 0) {
+            index = i;
+            break;
         }
     }
 
-    cout << maxMoney << " " << charge << endl;
+}
+
+int main()
+{
+    int n; cin >> n;
+    vector<int> cows;
+    while(n) {
+        int x; cin >> x;
+        cows.push_back(x);
+        n--;
+    }
+
+    // sort vector
+    sort(cows.begin(), cows.end());
+
+    int maxRev = 0;
+    int maxTut = 0;
+    int index = cows.size() - 1;
+    for(int i = 0; i < cows[cows.size()-1]; i++) {
+        int rev = cows[i] * index;
+        checkIndex();
+        if(rev > maxRev) {
+            maxRev = rev;
+            maxTut = cows[i];
+        }
+    }
+
+    cout << maxRev << " " << maxTut << endl;
+
 }
