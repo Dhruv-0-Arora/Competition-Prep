@@ -1,36 +1,33 @@
-#include<bits/stdc++.h>
+
+#include <bits/stdc++.h>
 using namespace std;
-
-typedef long long ll;
-
-void solve(vector<ll>& a, int& ans, int start) {
-    // power is = to length
-    int power = a.size() - start;
-    // multiplicity = first element
-    ll multiplicity = a[start]; ans += abs(multiplicity);
-    if (multiplicity == 0) return;
-
-    for (int i = a.size() - 1; i > start; i--) {
-        a[i] += (power * multiplicity * -1);
-        power --;
-    }
-}
 
 int main() {
     // inputing N number of patches of field
     int N; cin >> N;
 
     // input each path
-    vector<ll> a(N);
+    vector<long long> a(N);
     for (int i = 0; i < N; i++) cin >> a[i];
 
-    // call function to find the answer
-    int ans = 0;
-    // for the length of the vector
-    for (int i = 0; i < N; i++) {
-        solve(a, ans, i);
+    int currentPlant = 0;
+    int totalUses = 0;
+    while (currentPlant < N) {
+        
+        // cout << "Current order: ";
+        // for (int i = 0; i < N; i++) cout << a[i] << " ";
+        // cout << endl;
+
+        totalUses += abs(a[currentPlant]);
+        currentPlant++;
+
+        int k = 1;
+        for (int i = currentPlant; i < N; i++) {
+            a[i] += (((a[currentPlant - 1]) * k) * -1) + (a[currentPlant - 1] * -1);
+            k++;
+        }
+
+        a[currentPlant - 1] = 0;
     }
-
-    cout << ans << endl;
-
+    cout << totalUses;
 }

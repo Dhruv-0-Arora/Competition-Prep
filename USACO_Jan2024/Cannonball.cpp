@@ -1,41 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> pii;
-
 int main() {
-    int l, s;
-    cin >> l >> s;
-    vector<pii> coords(l);
+    int length, start;
+    cin >> length >> start;
+    vector<pair<int, int>> coords(length);
 
-    for (pii& coord : coords) {
+    for (pair<int, int>& coord : coords) {
         cin >> coord.first >> coord.second;
     }
 
-    int position = s - 1, power = 1, a = 0;
-    while (position < l && position >= 0) {
+    int position = start - 1;
+    int currentPower = 1;
+    int targetsBroken = 0;
+    while (position < length && position >= 0) {
+        // cout << "Position and place and power: " << position + 1 << " " << coords[position].first << " " << coords[position].second << " " << currentPower << endl;
         if (coords[position].first == 1) {
-            if (abs(power) >= coords[position].second) {
+            if (abs(currentPower) >= coords[position].second) {
                 coords[position].first = 2;
-                a++;
+                targetsBroken++;
+                // cout << "Target broken at: " << (position + 1) << endl;
             } else {
+                // cout << "Target skipped at: " << (position + 1) << endl;
             }
-            position += power;
+            position += currentPower;
         } else if (coords[position].first == 0) {
-            if (power > 0) {
-                power += coords[position].second;
-                power *= -1;
+            if (currentPower > 0) {
+                currentPower += coords[position].second;
+                currentPower *= -1;
             } else {
-                power -= coords[position].second;
-                power *= -1;
+                currentPower -= coords[position].second;
+                currentPower *= -1;
             }
             
-            position += power;
+            // cout << "Jumppad used at: " << (position + 1) << endl;
+            position += currentPower;
             
         } else if (coords[position].first == 2) {
-            position += power;
+            position += currentPower;
         }
+        // cout << "Current position: " << (position + 1) << endl;
     }
 
-    cout << a << endl;
+    cout << targetsBroken << endl;
 }
