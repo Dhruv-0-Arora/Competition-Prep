@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -14,6 +14,7 @@ void solve() {
 
     // if length is 2 corner case
     if(n == 2){
+<<<<<<< Updated upstream
         if (a[0] == a[1])
             cout << a[0] << endl;
         else
@@ -29,6 +30,9 @@ void solve() {
             cout << a[1] << endl;
         else
             cout << "-1\n";
+=======
+        cout << "-1\n";
+>>>>>>> Stashed changes
         return;
     }
     
